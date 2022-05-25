@@ -46,32 +46,11 @@
 
 h1 {
     font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #f50511;
+    color: #ff2626;
     font-weight: bold;
     margin-top: 30px;
-    text-shadow: #000000 0px 0px 13px;
+    text-shadow: #000000 0px 0px 10px;
  }
-
-.github-corner:hover .octo-arm {
-  	animation: octocat-wave 560ms ease-in-out;
-}
-
-@keyframes octocat-wave {
-  0%,
-  100% {
-    transform: rotate(0)
-  }
-
-  20%,
-  60% {
-    transform: rotate(-25deg)
-  }
-
-  40%,
-  80% {
-    transform: rotate(10deg)
-  }
-}
 
 #autoComplete {
   background-position: 98% ;
@@ -107,7 +86,7 @@ h6 {
 		background-image: url("../static/loader.gif");
 		background-size: 40%;
 		background-position: 50% 50%;
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgb(255, 255, 255);
 		background-repeat: no-repeat;
 		-webkit-transition: background-image 0.2s ease-in-out;
 		transition: background-image 0.2s ease-in-out;
@@ -192,6 +171,8 @@ h6 {
 
 .card:hover {
 	cursor: pointer;
+	border: 2px solid #fff;
+	overflow: hidden;
 }
 
 .castcard:hover {
