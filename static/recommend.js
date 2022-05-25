@@ -66,7 +66,7 @@ function movie_recs(movie_title,movie_id,my_api_key){
     url:"/similarity",
     data:{'name':movie_title},
     success: function(recs){
-      if(recs=="Sorry! The movie you requested is not in our database. Please check the spelling or try with some other movies"){
+      if(recs=="Sorry! The requested movie is not in our database. Please check the spelling or explore other movies!"){
         $('.fail').css('display','block');
         $('.results').css('display','none');
         $("#loader").delay(500).fadeOut();
@@ -89,7 +89,7 @@ function movie_recs(movie_title,movie_id,my_api_key){
   }); 
 }
 
-// get all the details of the movie using the movie id.
+// getting movie details from the api using the movie id.
 function get_movie_details(movie_id,my_api_key,arr,movie_title) {
   $.ajax({
     type:'GET',
@@ -170,7 +170,7 @@ function show_details(movie_details,arr,movie_title,my_api_key,movie_id){
   });
 }
 
-// get the details of individual cast
+// getting the details of individual cast
 function get_individual_cast(movie_cast,my_api_key) {
     cast_bdays = [];
     cast_bios = [];
