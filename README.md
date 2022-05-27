@@ -23,7 +23,7 @@ Please follow the following steps to run the webapp on your system.
 1. Clone or download this repository to your local machine.
 2. Install all the libraries mentioned in the [requirements.txt](https://github.com/pooja610/Movie-Radar/blob/main/requirements.txt) as shown above.
 3. To get the `API key`, create an account on https://www.themoviedb.org/. Go to account settings and click on `API`. Fill in the required details (you can write NA for website URL). You will get the API key as soon as your request gets approved.
-3. Set my_api_key in the lines 15 and 29 of `static/recommend.js` file to the API key you just got and save.
+3. Set my_api_key in the lines 17 and 31 of `static/recommend.js` file to the API key you just got and save.
 4. In your terminal/command prompt, execute the command `python main.py` to run the file `main.py`.
 5. Run `http://127.0.0.1:5000/` in your browser.
 6. Now you are good to go!
