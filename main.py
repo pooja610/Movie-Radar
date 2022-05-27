@@ -31,12 +31,13 @@ def rcmd(m):
     except:
         data, similarity = create_similarity()
     if m not in data['movie_title'].unique():
-        return('Sorry! The movie you requested is not in our database. Please check the spelling or try with some other movies')
+        return('Sorry! This movie is not in our database. Please check the spelling or explore other movies')
     else:
         i = data.loc[data['movie_title']==m].index[0]
         lst = list(enumerate(similarity[i]))
         lst = sorted(lst, key = lambda x:x[1] ,reverse=True)
-        lst = lst[1:11] # excluding first item since it is the requested movie itself
+        # exclude first item because its the requested movie by user
+        lst = lst[1:11] 
         l = []
         for i in range(len(lst)):
             a = lst[i][0]
@@ -61,6 +62,7 @@ app = Flask(__name__)
 def home():
     suggestions = get_suggestions()
     return render_template('home.html',suggestions=suggestions)
+
 
 @app.route("/similarity",methods=["POST"])
 def similarity():
@@ -150,3 +152,4 @@ def recommend():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
