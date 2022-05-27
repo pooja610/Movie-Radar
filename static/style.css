@@ -1,3 +1,39 @@
+.top{
+	position: fixed;
+	background-color: rgb(254, 237, 237);
+	top: 0;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 100;
+}
+
+.nav {
+	overflow: hidden;
+	display: flex;
+	gap: 1em;
+	font-size: 18px;
+  }
+  
+  .nav a {
+	float: left;
+	color: #000000;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	display:block;
+  }
+  
+  .nav a:hover {
+	background-color: #000;
+	color: white;
+  }
+  
+  .nav a.active {
+	background-color: none;
+	color: red;
+  }
+  
 .movie {
 	color: #fff;
 	margin-left: auto;
@@ -24,11 +60,13 @@
 }
 
 #content {
-	background-image: url("../static/background_img.jpg");
+	background-image: url("../static/bimage.jpg");
+	background-attachment: fixed;
+	background-position-y: bottom;
 	background-repeat:no-repeat;
 	background-size: cover;
 	background-color: #181818;
-	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Gorditas', cursive;
 }
 
 #details {
@@ -37,23 +75,26 @@
 
 .footer {
 	color: #e4e0e0;
-	text-align:right;
+	text-align:left;
 	position: fixed;
  	bottom: 20px;
- 	right: 20px;
+ 	font-family: 'Gorditas', cursive;
  	width: 100%;
-}
+} 
 
 h1 {
-    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #ff2626;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: red;
     font-weight: bold;
     margin-top: 30px;
-    text-shadow: #000000 0px 0px 10px;
+    text-shadow: #000000 0px 0px 1px;
+ }
+ h2{
+	font-family: 'Ubuntu', sans-serif;
  }
 
 #autoComplete {
-  background-position: 98% ;
+  background-position: 1% ;
 }
 
 #name {
@@ -83,7 +124,7 @@ h6 {
 		top:0;
 		width: 100%;
 		height: 100%;
-		background-image: url("../static/loader.gif");
+		background-image: url("../static/loadergif");
 		background-size: 40%;
 		background-position: 50% 50%;
 		background-color: rgb(255, 255, 255);
@@ -137,12 +178,12 @@ h6 {
 	#loader {
 		display: none;
 		position: fixed;
-		z-index: 100;
 		left: 0;
 		top:0;
+		z-index: 1;
 		width: 100%;
 		height: 100%;
-		background-image: url("../static/loader.gif");
+		background-image: url("../static/loading.gif");
 		background-size: 20%;
 		background-position: 50% 50%;
 		background-color: rgba(255, 255, 255, 1);
@@ -155,7 +196,6 @@ h6 {
 		vertical-align: middle;
 		color:white;
 	}
-
 }
 
 .poster{
@@ -165,19 +205,19 @@ h6 {
 }
 
 .poster:hover{
-	border: 2px solid #fff;
+	border: 2px solid white;
 	overflow: hidden;
 }
 
 .card:hover {
 	cursor: pointer;
-	border: 2px solid #fff;
+	border: 2px solid red;
 	overflow: hidden;
 }
 
 .castcard:hover {
     cursor: pointer;
-	border: 2px solid #fff;
+	border: 2px solid white;
 	overflow: hidden;
 }
 
@@ -190,7 +230,7 @@ h6 {
 
 
 .cast-img:hover {
-	filter: brightness(50%);
+	filter: brightness(60%);
 	-moz-transition: all 0.75s ease;
     -webkit-transition: all 0.75s ease;
     transition: all 0.75s ease;
@@ -200,7 +240,7 @@ h6 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	backdrop-filter: brightness(50%);
+	backdrop-filter: brightness(60%);
 	position: absolute;
 	bottom: 0px;
 	top: 0px;
@@ -221,18 +261,21 @@ h6 {
 }
 
 .card-btn {
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 .imghvr {
 	position: relative;
 }
 
-.table td {
-    border-color: white;
+.table tbody {
+    border-color: black;
     border-style:solid; 
-    border-width:1px;
+    border-width:2px;
+	background-color: #b33333;
+	opacity: 95%;
 }
+
 
 .fail {
 	display: none;
