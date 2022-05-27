@@ -10,9 +10,12 @@
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
-	<!-- Font Awesome -->
+	<!-- Google Fonts & Font Awesome-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -21,6 +24,20 @@
 </head>
 
 <body id="content">
+  <div class="header" style="display: block;">
+		<div class="top">
+    <center><h1 style="font-size: 40px;">Movie Radar</h1></center>
+      <nav>
+        <ul class="nav">
+          <li><a href="/home"><i class="fa fa-home fa-fw" aria-hidden="true"></i><span>Home</span></a></li>
+          <li><a href="#cast-details">Main Cast</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#recommend">Recommendations</a></li>
+          <li class="logo"><a href="https://github.com/pooja610/Movie-Radar.git">GitHub<i class="fab fa-github" style='color: rgb(0, 0, 0)'></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 	<div class="results">
 	    <center>
 	      <h2 id="name" class="text-uppercase">{{title}}</h2>
@@ -31,30 +48,41 @@
 <div id="mycontent">
     <div id="mcontent">
       <div class="poster-lg">
-        <img class="poster" style="border-radius: 40px;margin-left: 90px;" height="400" width="250" src={{poster}}>
+        <img class="poster" style="border-radius: 1px;margin-left: 90px;" height="450" width="300" src={{poster}}>
       </div>
       <div class="poster-sm text-center">
         <img class="poster" style="border-radius: 40px;margin-bottom: 5%;" height="400" width="250" src={{poster}}>
       </div>
       <div id="details">
         <br/>
-        <h6 id="title" style="color:white;">TITLE: &nbsp;{{title}}</h6>
-        <h6 id="overview" style="color:white;max-width: 85%">OVERVIEW: <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{overview}}</h6>
-        <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{vote_average}}/10 ({{vote_count}} votes)</h6>
-        <h6 id="genres" style="color:white;">GENRE: &nbsp;{{genres}}</h6>
-        <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{release_date}}</h6>
-        <h6 id="runtime" style="color:white;">RUNTIME: &nbsp;{{runtime}}</h6>
-        <h6 id="status" style="color:white;">STATUS: &nbsp;{{status}}</h6>
+        <table class="table table-bordered" bordercolor="white" style="color:white; border-color: black;">
+          <thead>
+              <tr>
+                  <th class="text-center" scope="col" style="width: 25%">Label</th>
+                  <th class="text-center" scope="col">Value</th>
+              </tr>
+          </thead>
+          <tbody>
+        <tr id="title" style="color:white; text-align: center;"><td>TITLE: &nbsp;</td><td>{{title}}</td></tr>
+        <tr id="overview" style="color:white;max-width: 85%; text-align: center;"> <td>OVERVIEW: </td><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td>{{overview}}</td></tr>
+        <tr id="vote_average" style="color:white; text-align: center;"><td>RATING: </td>&nbsp; <td>{{vote_average}}/10 ({{vote_count}} votes)</td></tr>
+        <tr id="genres" style="color:white; text-align: center;"><td>GENRE: </td> &nbsp;<td>{{genres}}</td></tr>
+        <tr id="date" style="color:white; text-align: center;"><td>RELEASE DATE: </td> &nbsp;<td>{{release_date}}</td></tr>
+        <tr id="runtime" style="color:white; text-align: center;"><td>RUNTIME:</td> &nbsp;<td>{{runtime}}</td></tr>
+        <tr id="status" style="color:white; text-align: center;"><td>STATUS:</td> &nbsp;<td>{{status}}</td></tr>
+        </tbody>
+        </table>
       </div>
     </div>
 </div>
 <br/>
 	
 {% for name, details in cast_details.items() if not cast_details.hidden %}
+<div id="cast-details">
   <div class="modal fade" id="{{details[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #ff2626;color: white;">
+        <div class="modal-header" style="background-color: red;color: white;">
           <h5 class="modal-title" id="exampleModalLabel3">{{name}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" style="color: white">&times;</span>
@@ -72,29 +100,27 @@
             </p>
           </div>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div> -->
       </div>
     </div>
   </div>
+
   {% endfor %}
   
   {% if casts|length > 1 %}
-  <div class="movie" style="color: #ff2626;">
+  <div class="movie" style="color: red;">
     	<center>
-		<h2>TOP CAST</h2>
+		<h2>MAIN CAST</h2>
 		<h5 style="color: #fff;">(Click on the cast to know more)</h5>
 	</center>
   </div>
 
   <div class="movie-content">
         {% for name, details in casts.items() if not casts.hidden %}
-          <div class="castcard card" style="width: 15rem;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
-            <div class="imghvr">
+          <div class="castcard card" style=" background-color: #e49e12; width: 20rem;" title="Click to know more about {{name}}" data-toggle="modal" data-target="#{{details[0]}}">
+            <div class="imghvr" style="margin-left: 10px; margin-top: 10px; margin-right: 10px;">
               <img class="card-img-top cast-img" id="{{details[0]}}" height="360" width="240" alt="{{name}} - profile" src="{{details[2]}}">
               <figcaption class="fig">
-                <button class="card-btn btn btn-danger"> Know More </button>
+                <button class="card-btn btn btn-danger" style="background-color: red; color:white"> Click here </button>
               </figcaption>
             </div>
             <div class="card-body">
@@ -105,48 +131,12 @@
       {% endfor %}
     </div>
 {% endif %}
+</div>
 
-  <center>
-    {% if reviews %}
-    <h2 style="color:#ff2626">USER REVIEWS</h2>
-     <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
-        <table class="table table-bordered" bordercolor="white" style="color:white">
-            <thead>
-                <tr>
-                    <th class="text-center" scope="col" style="width: 75%">Comments</th>
-                    <th class="text-center" scope="col">Sentiments</th>
-                </tr>
-            </thead>
-    
-            <tbody>
-		      {% for review, status in reviews.items() if not reviews.hidden %}
-		      <tr style="background-color:#343331; color: rgb(255, 255, 255);">
-              	  <td>{{review}}</td>
-	              <td><center>
-	                  {{status}} : 
-	                  {% if status =='Good' %}
-	                    &#128515;
-	                  {% else %}
-	                    &#128534;
-	                  {% endif %}
-	                </center>
-	              </td>
-          		</tr>
-      			{% endfor %}
-    		</tbody>
- 		 </table>
-    </div>
-    {% else %}
-    <div style="color:white;">
-      <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
-    </div>
-    {% endif %}
-  </center>
+{% if movie_cards|length > 1 %}
 
-      {% if movie_cards|length > 1 %}
-
-
-      <div class="movie" style="color: #ff2626;">
+<div id="recommend">
+      <div class="movie" style="color: red;">
       <center><B><h2>MOVIES RECOMMENDED FOR YOU</h2></B><h5 style="color: #fff;">(Click any of the movies to get recommendation)</h5></center>
     </div>
 
@@ -167,15 +157,43 @@
     </div>
 
     {% endif %}
-
-    
-    </div>
   </div>
+
+<div id="reviews">
+  <center>
+    
+    {% if reviews %}
+    <h2 style="color:red ;">USER REVIEWS for {{title}}</h2>
+     <div class="col-md-12" style="margin: 10px auto;">
+        <ul style="margin-left: 0px;">
+		      {% for review, status in reviews.items() if not reviews.hidden %}
+		      
+              <li style="background-color:#686560; border-radius: 5px; border-width: 5px ;color: rgb(255, 255, 255);">{{review}} :
+                    {% if status =='Good' %}
+                    &#128525; &#128525;
+	                  {% else %}
+                      Oops!! &#128542;
+	                  {% endif %}
+                    
+              </li>
+                  <hr size="8" width="90%" color="white">
+      			{% endfor %}
+                </ul>
+    </div>
+    {% else %}
+    <div style="color:white;">
+      <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
+    </div>
+    {% endif %}
+  </center>
+</div>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+
 </body>
 </html>
-
