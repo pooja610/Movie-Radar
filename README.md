@@ -10,7 +10,7 @@ The movie reviews are scraped from the IMDB site using beautifulsoup.
 We can click on the recommended movies to get the info and further recommendations for the movie.
 
 I have deployed the webapp on heroku.
-Check out the live demo: https://movie--radar.herokuapp.com/
+Check out the live demo: https://movie-radaar.herokuapp.com/
 
 ## Prerequisites
 
@@ -52,4 +52,4 @@ It is often used to measure document similarity in text analysis. Smaller the an
 You can learn more about cosine similarity [here](https://www.sciencedirect.com/topics/computer-science/cosine-similarity#:~:text=Cosine%20similarity%20measures%20the%20similarity,document%20similarity%20in%20text%20analysis.)
 
 
-You can explore Movie Radar here: https://movie--radar.herokuapp.com/
+You can explore Movie Radar here: https://movie-radaar.herokuapp.com/
