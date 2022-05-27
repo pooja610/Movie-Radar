@@ -1,5 +1,7 @@
 $(function() {
-  // Button will be disabled until we type anything inside the input field
+
+  // Button will be enabled when user starts typing
+
   const source = document.getElementById('autoComplete');
   const inputHandler = function(e) {
     if(e.target.value==""){
@@ -12,7 +14,7 @@ $(function() {
   source.addEventListener('input', inputHandler);
 
   $('.movie-button').on('click',function(){
-    var my_api_key = '44861db4187cfe90cc9cadde16646735';
+    var my_api_key = 'API_KEY';                //give your API key here!!
     var title = $('.movie').val();
     if (title=="") {
       $('.results').css('display','none');
@@ -24,14 +26,14 @@ $(function() {
   });
 });
 
-// will be invoked when clicking on the recommended movies
+// func will be invoked when clicking on the recommended movies
 function recommendcard(e){
-  var my_api_key = '44861db4187cfe90cc9cadde16646735';
+  var my_api_key = 'API_KEY';                  //give your API key here!!
   var title = e.getAttribute('title'); 
   load_details(my_api_key,title);
 }
 
-// get the basic details of the movie from the API (based on the name of the movie)
+// gets the basic details of the movie from the API (based on the name of the movie)
 function load_details(my_api_key,title){
   $.ajax({
     type: 'GET',
@@ -89,7 +91,7 @@ function movie_recs(movie_title,movie_id,my_api_key){
   }); 
 }
 
-// getting movie details from the api using the movie id.
+// getting movie details from the API using the movie id.
 function get_movie_details(movie_id,my_api_key,arr,movie_title) {
   $.ajax({
     type:'GET',
@@ -104,7 +106,7 @@ function get_movie_details(movie_id,my_api_key,arr,movie_title) {
   });
 }
 
-// passing all the details to python's flask for displaying and scraping the movie reviews using imdb id
+// passing all the details to python's flask for displaying and scraping the movie reviews using IMDB id
 function show_details(movie_details,arr,movie_title,my_api_key,movie_id){
   var imdb_id = movie_details.imdb_id;
   var poster = 'https://image.tmdb.org/t/p/original'+movie_details.poster_path;
@@ -197,14 +199,14 @@ function get_movie_cast(movie_id,my_api_key){
     cast_chars = [];
     cast_profiles = [];
 
-    top_10 = [0,1,2,3,4,5,6,7,8,9];
+    top_8 = [0,1,2,3,4,5,6,7];
     $.ajax({
       type:'GET',
       url:"https://api.themoviedb.org/3/movie/"+movie_id+"/credits?api_key="+my_api_key,
       async:false,
       success: function(my_movie){
-        if(my_movie.cast.length>=10){
-          top_cast = [0,1,2,3,4,5,6,7,8,9];
+        if(my_movie.cast.length>=8){
+          top_cast = [0,1,2,3,4,5,6,7];
         }
         else {
           top_cast = [0,1,2,3,4];
