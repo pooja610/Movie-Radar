@@ -30,7 +30,7 @@ Please follow the following steps to run the webapp on your system.
 
 ## Datasets
 
-I have performed data preprocessing to get useful information from raw data. The datasets folder conains the preprocessed data in `.csv` format.
+I have performed data preprocessing to get useful information from raw data. The datasets folder contains the preprocessed data in `.csv` format.
 The sources of movie dataset are:
 1. [IMDB Movie Dataset from kaggle](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
 2. [The-Movies-Dataset from kaggle](https://www.kaggle.com/rounakbanik/the-movies-dataset)
